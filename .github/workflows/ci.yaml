@@ -26,8 +26,8 @@ jobs:
           nightly,
         ]
     steps:
-      - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@master
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: dtolnay/rust-toolchain@439cf607258077187679211f12aa6f19af4a0af7 # master
         with:
           toolchain: ${{ matrix.rust }}
       - run: cargo build
@@ -44,8 +44,8 @@ jobs:
       - run: |
           sudo apt-get update
           sudo apt-get install gcc-multilib
-      - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: dtolnay/rust-toolchain@d76c2a93c593483c9892fd8d2538734f73ed8588 # stable
         with:
           target: i586-unknown-linux-gnu
       - run: cargo test --target i586-unknown-linux-gnu --all-features
@@ -55,8 +55,8 @@ jobs:
     name: No Std
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: dtolnay/rust-toolchain@d76c2a93c593483c9892fd8d2538734f73ed8588 # stable
         with:
           target: thumbv6m-none-eabi
       - run: cargo build --target thumbv6m-none-eabi --no-default-features
@@ -66,8 +66,8 @@ jobs:
     name: Format
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@1.62.0
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: dtolnay/rust-toolchain@9e05a8b19349ee47e89b44a2ba5fb0a932eff356 # 1.62.0
         with:
           components: rustfmt
       - run: cargo fmt --all --check
